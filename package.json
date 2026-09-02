@@ -1,0 +1,8 @@
+{
+  "name": "bigyear",
+  "private": true,
+  "scripts": {
+    "check": "node --check app.js && node --check state.js && node --check storage.js && node --check utils.js && node --check friends.js && node --check auth.js && node --check cloud.js",
+    "test": "node tests/smoke-storage.js && node tests/smoke-frontend.js && node tests/smoke-state.js && node tests/smoke-observer.js && node tests/smoke-cloud.js"
+  }
+}

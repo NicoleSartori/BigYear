@@ -1,0 +1,16 @@
+/* BigYear design tokens — Step 41
+   Single source of truth for the approved palette.
+   Visual values are unchanged from Step 40.
+*/
+
+:root {
+    --by-bg: #F2EDE6;
+    --by-surface: #FAF7F2;
+    --by-peach: #E6B78C;
+    --by-orange: #E7823A;
+    --by-blue: #A7B6C9;
+    --by-slate: #5D6E7B;
+    --by-graphite: #2B2D2F;
+    --by-border: rgba(93,110,123,.18);
+    --by-orange-dark: #D96F2D;
+}

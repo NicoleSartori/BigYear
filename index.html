@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>BigYear</title>
+
+    <link
+        rel="stylesheet"
+        href="tokens.css">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+</head>
+
+
+<body>
+      <!-- ==========================================
+     PRIMO AVVIO
+========================================== -->
+
+<section class="welcome-screen" id="welcomeScreen">
+
+    <div class="welcome-content">
+
+        <img
+            class="welcome-logo"
+            src="assets/logo.png"
+            alt="BigYear">
+
+        <h1 class="welcome-brand-name">BigYear</h1>
+
+        <p class="welcome-claim">Track your year</p>
+
+        <p class="welcome-text">
+            Iniziamo a costruire il tuo Big Year.
+        </p>
+
+        <button
+            class="primary-onboarding-button"
+            id="startButton">
+            Inizia
+        </button>
+
+        <button
+            class="secondary-onboarding-button welcome-login-button"
+            id="welcomeLoginButton">
+            Ho già un account · <span>Accedi</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     REGISTRAZIONE
+========================================== -->
+
+<section class="auth-screen" id="authScreen">
+
+    <div class="auth-content">
+
+        <button class="onboarding-back-button" id="authBackButton" aria-label="Indietro"><img src="assets/back-arrow.svg" alt=""></button>
+
+        <div class="auth-brand">
+            <img class="auth-brand-logo" src="assets/logo.png" alt="BigYear">
+            <span>BigYear</span>
+        </div>
+
+        <h1>Crea il tuo account</h1>
+
+        <div class="onboarding-form">
+            <div class="onboarding-form-group">
+                <label for="accountName">Come ti chiami?</label>
+                <input type="text" id="accountName" placeholder="Nome e cognome" autocomplete="name">
+            </div>
+
+            <div class="onboarding-form-group">
+                <label for="accountEmail">Email</label>
+                <input type="email" id="accountEmail" placeholder="La tua email" autocomplete="email">
+            </div>
+
+            <div class="onboarding-form-group">
+                <label for="accountPassword">Password</label>
+                <input type="password" id="accountPassword" placeholder="Crea una password" autocomplete="new-password">
+            </div>
+        </div>
+
+        <button class="primary-onboarding-button" id="createAccountButton">Crea account</button>
+
+        <button class="secondary-onboarding-button" id="authLoginButton">Ho già un account</button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     ACCESSO
+========================================== -->
+
+<section class="login-screen" id="loginScreen">
+
+    <div class="login-content">
+
+        <button class="onboarding-back-button" id="loginBackButton" aria-label="Indietro"><img src="assets/back-arrow.svg" alt=""></button>
+
+        <div class="auth-brand">
+            <img class="auth-brand-logo" src="assets/logo.png" alt="BigYear">
+            <span>BigYear</span>
+        </div>
+
+        <h1>Accedi</h1>
+
+        <p class="bigyear-choice-text">Accedi al tuo account per continuare.</p>
+
+        <div class="onboarding-form">
+            <div class="onboarding-form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="La tua email" autocomplete="email">
+            </div>
+
+            <div class="onboarding-form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="La tua password" autocomplete="off">
+            </div>
+        </div>
+
+        <button class="primary-onboarding-button" id="loginSubmitButton">Accedi</button>
+
+        <button class="secondary-onboarding-button" id="goToRegisterButton">Crea un nuovo account</button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     SCELTA BIG YEAR
+========================================== -->
+
+<section class="bigyear-choice-screen" id="bigyearChoiceScreen">
+    <div class="bigyear-choice-content">
+        <div class="onboarding-brand">
+            <img class="onboarding-brand-logo" src="assets/logo.png" alt="">
+            <span>BigYear</span>
+        </div>
+        <p class="eyebrow">BIG YEAR</p>
+        <h1>Iniziamo</h1>
+        <p class="bigyear-choice-text">Come vuoi entrare nel tuo Big Year?</p>
+
+        <button class="bigyear-choice-card" id="createBigYearButton">
+            <span class="bigyear-choice-icon"><img src="assets/plus.png" alt="" aria-hidden="true"></span>
+            <span class="bigyear-choice-card-content">
+                <strong>Crea il tuo Big Year</strong>
+                <small>Inizia una nuova sfida</small>
+            </span>
+            <span class="bigyear-choice-arrow">→</span>
+        </button>
+
+        <button class="bigyear-choice-card" id="joinBigYearButton">
+            <span class="bigyear-choice-icon"><img src="assets/ticket.png" alt="" aria-hidden="true"></span>
+            <span class="bigyear-choice-card-content">
+                <strong>Partecipa</strong>
+                <small>Hai ricevuto un invito?</small>
+            </span>
+            <span class="bigyear-choice-arrow">→</span>
+        </button>
+
+        <button type="button" class="choice-logout-button" id="choiceLogoutButton">Esci dall'account</button>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     CONFIGURAZIONE BIG YEAR
+========================================== -->
+
+<section class="bigyear-config-screen" id="bigyearConfigScreen">
+    <div class="bigyear-config-content">
+        <div class="onboarding-brand">
+            <img class="onboarding-brand-logo" src="assets/logo.png" alt="">
+            <span>BigYear</span>
+        </div>
+        <button class="onboarding-back-button" id="configBackButton" aria-label="Indietro"><img src="assets/back-arrow.svg" alt=""></button>
+        <p class="eyebrow">NUOVO BIG YEAR</p>
+        <h1>Crea il tuo Big Year</h1>
+        <p class="bigyear-choice-text">Imposta la tua avventura.</p>
+
+        <div class="onboarding-form">
+            <div class="onboarding-form-group">
+                <label for="bigYearName">Nome del Big Year</label>
+                <input type="text" id="bigYearName" placeholder="Big Year 2026">
+            </div>
+
+            <div class="onboarding-form-group">
+                <label>Area geografica</label>
+
+                <div class="area-choice-grid">
+
+                    <div class="area-choice-option">
+                        <button type="button" class="area-choice-card" data-area-type="country">
+                            <span>Stato</span>
+                        </button>
+
+                        <div class="area-subpanel" id="countryAreaPanel">
+                            <select id="countrySelect" aria-label="Scegli lo Stato">
+                                <option value="Italia">Italia</option>
+                                <option value="Slovenia">Slovenia</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Spagna">Spagna</option>
+                                <option value="Regno Unito">Regno Unito</option>
+                                <option value="Germania">Germania</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="area-choice-option">
+                        <button type="button" class="area-choice-card" data-area-type="ecozone">
+                            <span>Ecozona</span>
+                        </button>
+
+                        <div class="area-subpanel" id="ecozoneAreaPanel">
+                            <select id="ecozoneSelect" aria-label="Scegli l'ecozona">
+                                <option value="Paleartica">Paleartica</option>
+                                <option value="Afrotropicale">Afrotropicale</option>
+                                <option value="Indomalese">Indomalese</option>
+                                <option value="Neartica">Neartica</option>
+                                <option value="Neotropicale">Neotropicale</option>
+                                <option value="Australasiana">Australasiana</option>
+                                <option value="Oceaniana">Oceaniana</option>
+                                <option value="Antartica">Antartica</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="area-choice-option">
+                        <button type="button" class="area-choice-card" data-area-type="world">
+                            <span>Mondo</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="onboarding-form-group">
+                <label for="bigYearStartDate">Quando vuoi iniziare?</label>
+                <input type="date" id="bigYearStartDate">
+            </div>
+
+            <div class="bigyear-end-date-card">
+                <span>Data di fine</span>
+                <strong id="bigYearEndDate">—</strong>
+            </div>
+        </div>
+
+        <button class="primary-onboarding-button" id="saveBigYearButton">Inizia il Big Year</button>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     PARTECIPA A UN BIG YEAR
+========================================== -->
+
+<section class="join-bigyear-screen" id="joinBigYearScreen">
+    <div class="join-bigyear-content">
+        <div class="onboarding-brand">
+            <img class="onboarding-brand-logo" src="assets/logo.png" alt="">
+            <span>BigYear</span>
+        </div>
+        <button class="onboarding-back-button" id="joinBackButton" aria-label="Indietro"><img src="assets/back-arrow.svg" alt=""></button>
+        <p class="eyebrow">BIG YEAR</p>
+        <h1>Partecipa</h1>
+        <p class="bigyear-choice-text">Inserisci il codice di invito</p>
+
+        <div class="onboarding-form">
+            <div class="onboarding-form-group">
+                <label for="inviteCode">Codice di invito</label>
+                
+            <div
+                id="pendingInvitationCard"
+                class="pending-invitation-card"
+                style="display:none;"
+            >
+                <div class="eyebrow">INVITO</div>
+                <strong id="pendingInvitationTitle">
+                    Hai un invito a un Big Year
+                </strong>
+                <span id="pendingInvitationDetails"></span>
+
+                
+            </div>
+
+<input type="text" id="inviteCode" placeholder="BY-7K4M2P" autocomplete="off">
+            </div>
+        </div>
+
+        <button class="primary-onboarding-button" id="sendJoinRequestButton" disabled>Continua</button>
+    </div>
+</section>
+
+<main class="app">
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="topbar">
+
+            <div class="brand">
+                <img
+                    class="brand-logo"
+                    src="assets/logo.png"
+                    alt=""
+                    aria-hidden="true">
+                <h1>BigYear</h1>
+            </div>
+
+            <button class="menu-button" aria-label="Apri menu">
+                ☰
+            </button>
+
+        </header>
+
+        <!-- =====================================
+             MENU HAMBURGER
+        ====================================== -->
+        <div class="app-menu-overlay" id="appMenuOverlay" aria-hidden="true">
+            <aside class="app-menu-panel" role="dialog" aria-modal="true" aria-labelledby="appMenuTitle">
+                <div class="app-menu-header">
+                    <h2 id="appMenuTitle">Menu</h2>
+                    <button type="button" class="app-menu-close" id="appMenuClose" aria-label="Chiudi menu">×</button>
+                </div>
+                <div class="app-menu-section-label">IL TUO BIG YEAR</div>
+                <button type="button" class="app-menu-item" id="openBigYearButton">
+                    <span>Il mio Big Year</span><span class="app-menu-arrow">›</span>
+                </button>
+
+                <div class="app-menu-section-label app-menu-section-spaced">APP</div>
+                <button type="button" class="app-menu-item" id="openGuideButton">
+                    <span>Come funziona</span><span class="app-menu-arrow">›</span>
+                </button>
+                <button type="button" class="app-menu-item" id="openInfoButton">
+                    <span>Informazioni</span><span class="app-menu-arrow">›</span>
+                </button>
+
+                <div class="app-menu-section-label app-menu-account-label">ACCOUNT</div>
+                <div class="app-menu-account-email" id="menuAccountEmail">—</div>
+                <button type="button" class="app-menu-item" id="openAccountButton">
+                    <span>Il mio account</span><span class="app-menu-arrow">›</span>
+                </button>
+                <button type="button" class="app-menu-item app-menu-logout" id="logoutButton">
+                    <span>Esci dall'account</span><span class="app-menu-arrow">›</span>
+                </button>
+            </aside>
+        </div>
+
+        <!-- =====================================
+             PAGINE SECONDARIE APP
+        ====================================== -->
+        <section class="app-secondary-screen" id="guideScreen" aria-hidden="true">
+            <div class="app-secondary-inner">
+                <button type="button" class="secondary-back-button" id="guideBackButton" aria-label="Torna al menu"><img src="assets/back-arrow.svg" alt=""></button>
+                <p class="eyebrow">APP</p>
+                <h2>Come funziona</h2>
+                <div class="guide-content">
+                    <article><h3>Il tuo Big Year</h3><p>Il <strong>Big Year</strong> è la tua sfida di osservazione: durante il periodo che hai scelto, raccogli tutte le specie di uccelli che riesci a osservare nell’area del tuo progetto.</p><p>Puoi creare il tuo Big Year scegliendo il nome del progetto, l’area geografica e la data di inizio. Da quel momento puoi iniziare a registrare le tue osservazioni.</p></article>
+                    <article><h3>Checklist</h3><p>La <strong>Checklist</strong> contiene tutte le specie previste per l’area del tuo Big Year. Le specie che hai già osservato vengono segnate automaticamente come osservate.</p><p>Puoi cercare una specie per nome e vedere quante specie hai già trovato e quali ti mancano.</p></article>
+                    <article><h3>Aggiungi un'osservazione</h3><p>Ogni volta che osservi un uccello puoi aggiungerlo con il pulsante <strong>+</strong>. Per ogni osservazione puoi indicare specie, osservatori, data e ora, luogo e note.</p><p>L’osservazione aggiorna automaticamente checklist e statistiche.</p></article>
+                    <article><h3>Mappa</h3><p>La <strong>Mappa</strong> raccoglie le tue osservazioni geolocalizzate, così puoi vedere dove hai osservato le diverse specie e avere una panoramica dei luoghi che hanno contribuito al tuo Big Year.</p></article>
+                    <article><h3>Amici</h3><p>Puoi condividere il tuo Big Year con altri partecipanti. Nella sezione <strong>Amici</strong> puoi scegliere un partecipante e confrontare la sua checklist con la tua: tutte le specie che ha osservato, quelle che ti mancano e quelle osservate da entrambi.</p></article>
+                    <p class="guide-closing">Il Big Year è una sfida personale, ma può essere ancora più divertente insieme agli altri.<br>Osserva, registra e scopri quante specie riesci a incontrare durante il tuo anno.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-secondary-screen" id="accountSettingsScreen" aria-hidden="true">
+            <div class="app-secondary-inner account-settings-inner">
+                <button type="button" class="secondary-back-button" id="accountSettingsBackButton" aria-label="Torna al menu"><img src="assets/back-arrow.svg" alt=""></button>
+                <p class="eyebrow">ACCOUNT</p>
+                <h2>Il mio account</h2>
+                <p class="settings-intro">Qui puoi modificare il nome che compare nell'app e l'indirizzo email del tuo account.</p>
+
+                <div class="bigyear-settings-card account-settings-card">
+                    <div class="settings-field">
+                        <label for="accountSettingsName">Nome utente</label>
+                        <input type="text" id="accountSettingsName" placeholder="Il tuo nome" autocomplete="name">
+                        <small class="settings-help">È il nome che vedranno gli altri partecipanti nell'app.</small>
+                    </div>
+                    <div class="settings-field">
+                        <label for="accountSettingsEmail">Email</label>
+                        <input type="email" id="accountSettingsEmail" placeholder="La tua email" autocomplete="email">
+                        <small class="settings-help">Se cambi email, potrebbe essere necessario confermare il nuovo indirizzo.</small>
+                    </div>
+                    <button type="button" class="settings-save-button" id="saveAccountSettingsButton">Salva modifiche</button>
+                </div>
+
+                <div class="account-danger-zone">
+                    <p class="eyebrow">ZONA ACCOUNT</p>
+                    <button type="button" class="settings-action settings-delete" id="deleteAccountButton">
+                        <span>Elimina account</span><span>›</span>
+                    </button>
+                    <p class="settings-role-note">L'eliminazione dell'account è definitiva e rimuove anche i Big Year che amministri e i relativi dati.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-secondary-screen" id="bigYearSettingsScreen" aria-hidden="true">
+            <div class="app-secondary-inner bigyear-settings-inner">
+                <button type="button" class="secondary-back-button" id="bigYearSettingsBackButton" aria-label="Torna al menu"><img src="assets/back-arrow.svg" alt=""></button>
+                <p class="eyebrow">IL TUO BIG YEAR</p>
+                <h2>Il mio Big Year</h2>
+                <p class="settings-intro">Qui puoi controllare le impostazioni del tuo Big Year e, se sei l’amministratore, modificarle.</p>
+                <div class="bigyear-status-row"><span class="bigyear-status-badge" id="bigYearStatusBadge">Attivo</span></div>
+
+                <div class="bigyear-settings-card">
+                    <div class="settings-field">
+                        <label for="settingsBigYearName">Nome</label>
+                        <input type="text" id="settingsBigYearName" placeholder="Il mio Big Year">
+                    </div>
+                    <div class="settings-field">
+                        <label for="settingsBigYearAreaType">Tipo di area</label>
+                        <select id="settingsBigYearAreaType">
+                            <option value="country">Stato</option>
+                            <option value="ecozone">Ecozona</option>
+                            <option value="world">Mondo</option>
+                        </select>
+                    </div>
+                    <div class="settings-field">
+                        <label for="settingsBigYearArea">Area geografica</label>
+                        <select id="settingsBigYearArea" aria-label="Scegli l'area geografica"></select>
+                    </div>
+                    <div class="settings-date-grid">
+                        <div class="settings-field">
+                            <label for="settingsBigYearStart">Data di inizio</label>
+                            <input type="date" id="settingsBigYearStart">
+                        </div>
+                        <div class="settings-field">
+                            <label for="settingsBigYearEnd">Data di fine</label>
+                            <input type="date" id="settingsBigYearEnd">
+                        </div>
+                    </div>
+                    <button type="button" class="settings-save-button" id="saveBigYearSettingsButton">Salva modifiche</button>
+                </div>
+
+                <div class="bigyear-settings-actions">
+                    <button type="button" class="settings-action settings-neutral" id="exportObservationsButton">Esporta osservazioni <span>↓</span></button>
+                    <button type="button" class="settings-action settings-neutral" id="transferBigYearButton">Trasferisci amministrazione <span>›</span></button>
+                    <button type="button" class="settings-action settings-leave" id="leaveBigYearButton">Esci dal Big Year <span>›</span></button>
+                    <button type="button" class="settings-action settings-delete" id="deleteBigYearButton">Elimina il Big Year per tutti <span>›</span></button>
+                </div>
+                <div class="bigyear-concluded-card" id="bigYearConcludedCard" hidden>
+                    <p class="eyebrow">BIG YEAR CONCLUSO</p>
+                    <p>Questo Big Year è concluso: puoi continuare a consultarlo e correggerne le impostazioni, ma non puoi aggiungere nuove osservazioni.</p>
+                    <button type="button" class="settings-save-button" id="startNewBigYearButton">Inizia un nuovo Big Year</button>
+                    <button type="button" class="settings-action settings-neutral" id="joinAnotherBigYearButton">Partecipa a un Big Year <span>›</span></button>
+                </div>
+                <div class="bigyear-history-section">
+                    <p class="eyebrow">I TUOI BIG YEAR</p>
+                    <div id="bigYearHistoryList" class="bigyear-history-list"></div>
+                </div>
+                <p class="settings-role-note" id="bigYearRoleNote"></p>
+            </div>
+        </section>
+
+        <section class="app-secondary-screen" id="infoScreen" aria-hidden="true">
+            <div class="app-secondary-inner info-secondary-inner">
+                <button type="button" class="secondary-back-button" id="infoBackButton" aria-label="Torna al menu"><img src="assets/back-arrow.svg" alt=""></button>
+                <div class="info-brand"><img src="assets/logo.png" alt="BigYear"><span>BigYear</span></div>
+                <p class="welcome-claim">Track your year.</p>
+                <p class="info-description">BigYear è un’app pensata per aiutarti a seguire il tuo Big Year, registrare le tue osservazioni e confrontare le tue scoperte con quelle dei tuoi amici.</p>
+                <div class="info-version-card"><span>Versione</span><strong>1.0</strong></div>
+                <p class="info-closing">Realizzato con cura per chi ama osservare gli uccelli.</p>
+            </div>
+        </section>
+
+
+        <!-- =====================================
+             HOME
+        ====================================== -->
+
+        <div id="homeContent">
+
+        <section class="home-hero">
+
+            <div class="home-project-title">
+                <div class="home-project-heading-row">
+                    <h2 id="homeProjectName">Big Year 2026</h2>
+                    <span id="homeProjectStatus" class="home-project-status" hidden></span>
+                </div>
+
+                <div class="home-project-meta">
+                    <span class="home-meta-item">
+                        <img src="assets/calendar.svg" alt="" aria-hidden="true">
+                        <span id="homeProjectDates">1 gennaio — 31 dicembre 2026</span>
+                    </span>
+
+                    <span class="home-meta-item">
+                        <img src="assets/pin.png" alt="" aria-hidden="true">
+                        <span id="homeProjectArea">Italia</span>
+                    </span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="observations-card" aria-live="polite">
+
+            <div class="observations-card-main">
+                <p class="eyebrow">LE TUE OSSERVAZIONI</p>
+
+                <div class="observations-count-row">
+                    <strong id="homeObservationCount">0</strong>
+                    <span id="homeObservationLabel">osservazioni</span>
+                </div>
+            </div>
+
+            <div class="recent-observations" id="recentObservations">
+                <span class="recent-observations-empty">Ancora nessuna osservazione</span>
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             PARTECIPANTI
+        ====================================== -->
+
+        <section class="participants">
+
+            <div class="section-heading">
+
+                <h2>Partecipanti</h2>
+
+                <span id="homeParticipantCount">1</span>
+
+            </div>
+
+            <div id="participantCards" class="participant-cards"></div>
+
+            <div class="participant-invite-box">
+
+                <div class="participant-invite-content">
+
+                    <div class="participant-invite-copy">
+                        <strong>Invita qualcuno a partecipare</strong>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="add-participant-button"
+                        id="addParticipantButton">
+                        <span>+</span> Aggiungi partecipante
+                    </button>
+
+                    <div class="participant-invite-code-row">
+                        <div class="participant-invite-code">
+                            <div class="participant-invite-icon">
+                                <img src="assets/ticket.png" alt="" aria-hidden="true">
+                            </div>
+                            <strong id="participantInviteCode">BY-7K4M2P</strong>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="participant-copy-code-button"
+                            id="copyParticipantInviteCode">
+                            Copia
+                        </button>
+                    </div>
+
+                    <span class="participant-invite-help">
+                        Condividi questo codice con chi vuoi invitare al tuo Big Year.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        </div>
+
+        <!-- =====================================
+             MODAL AGGIUNGI PARTECIPANTE
+        ====================================== -->
+
+        <div
+            class="modal-overlay"
+            id="participantModal">
+
+            <div class="participant-modal">
+
+                <div class="modal-header">
+
+                    <div>
+                        <div class="eyebrow">
+                            BIG YEAR
+                        </div>
+
+                        <h2>
+                            Aggiungi partecipante
+                        </h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="close-button"
+                        id="closeParticipantModal">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="participantEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="participantEmail"
+                        placeholder="nome@email.it"
+                        autocomplete="email">
+
+                </div>
+
+                <button
+                    type="button"
+                    class="save-observation-button"
+                    id="sendParticipantInvite">
+                    Invia invito
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- =====================================
+             NUOVA OSSERVAZIONE
+        ====================================== -->
+
+        <div
+            class="modal-overlay"
+            id="observationModal">
+
+            <div class="observation-modal">
+
+
+                <!-- HEADER -->
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            NUOVA OSSERVAZIONE
+                        </p>
+
+                        <h2>
+                            Aggiungi una specie
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="close-button"
+                        id="closeObservationButton">
+
+                        ×
+
+                    </button>
+
+                </div>
+
+
+                <!-- SPECIE -->
+
+<div class="form-group species-section">
+
+    <label for="speciesInput">
+        Specie
+    </label>
+
+    <div
+        class="species-search-wrapper"
+        id="speciesSearchWrapper">
+
+        <div class="species-input-row">
+
+            <span class="species-search-icon"><img src="assets/search.png" alt="" aria-hidden="true"></span>
+
+            <input
+                type="text"
+                id="speciesInput"
+                placeholder="Cerca una specie..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                class="species-clear-button"
+                id="speciesClearButton">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="species-results"
+            id="speciesResults">
+        </div>
+
+    </div>
+
+
+    <div
+        class="selected-species-card"
+        id="selectedSpeciesCard">
+
+        <div class="selected-species-icon">
+            ✓
+        </div>
+
+        <div class="selected-species-content">
+
+            <div class="selected-species-name"
+                 id="selectedSpeciesName">
+            </div>
+
+            <div class="selected-species-scientific"
+                 id="selectedSpeciesScientific">
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="change-species-button"
+            id="changeSpeciesButton">
+
+            Cambia
+
+        </button>
+
+    </div>
+
+</div>
+
+
+                <!-- OSSERVATO DA -->
+
+                <div class="form-group">
+
+                    <label>
+                        Osservato da
+                    </label>
+
+                    <div class="observer-options" id="observerOptions">
+                    </div>
+
+                </div>
+
+
+                <!-- DATA / ORA -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="observationDate">
+                            Data
+                        </label>
+
+                        <input
+                            type="date"
+                            id="observationDate">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="observationTime">
+                            Ora
+                        </label>
+
+                        <input
+                            type="time"
+                            id="observationTime">
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     POSIZIONE
+                ================================== -->
+
+                <div class="form-group location-section">
+
+                    <label>
+                        Dove hai effettuato questa osservazione?
+                    </label>
+
+
+                    <!--
+                        SELETTORE POSIZIONE
+
+                        Ricerca + GPS + Mappa
+                    -->
+
+                    <div
+                        class="location-selector"
+                        id="locationSelector">
+
+
+                        <!-- RICERCA -->
+
+                        <button
+                            class="location-search-trigger"
+                            id="searchLocationButton">
+
+                            <span class="location-search-icon"><img src="assets/search.png" alt="" aria-hidden="true"></span>
+
+                            <span class="location-search-placeholder">
+                                Cerca un luogo...
+                            </span>
+
+                        </button>
+
+
+                        <!-- GPS -->
+
+                        <button
+                            class="location-icon-button"
+                            id="currentLocationButton"
+                            aria-label="Usa posizione attuale">
+
+                            <img src="assets/pin.png" alt="" aria-hidden="true">
+
+                        </button>
+
+
+                        <!-- MAPPA -->
+
+                        <button
+                            class="location-icon-button"
+                            id="chooseMapLocationButton"
+                            aria-label="Scegli sulla mappa">
+
+                            <img src="assets/map.png" alt="" aria-hidden="true">
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- CAMPO AUTOCOMPLETE -->
+
+                    <div
+                        class="location-search-panel"
+                        id="locationSearch">
+
+                        <div class="location-search-input-wrapper">
+
+                            <span><img src="assets/search.png" alt="" aria-hidden="true"></span>
+
+                            <input
+                                type="text"
+                                id="locationSearchInput"
+                                placeholder="Cerca città, località o luogo...">
+
+                            <button
+                                class="location-search-close"
+                                id="closeLocationSearchButton">
+
+                                ×
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="location-results"
+                            id="locationResults">
+                        </div>
+
+                    </div>
+
+
+                    <!-- LUOGO SELEZIONATO -->
+
+                    <div
+                        class="selected-location-card"
+                        id="selectedLocationCard">
+
+                        <div class="selected-location-icon">
+                            ✓
+                        </div>
+
+                        <div class="selected-location-content">
+
+                            <div class="selected-location-title">
+                                Luogo selezionato
+                            </div>
+
+                            <div
+                                class="selected-location-name"
+                                id="selectedLocationName">
+                            </div>
+
+                            <div
+                                class="selected-location-coordinates"
+                                id="selectedLocationCoordinates">
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="change-location-button"
+                            id="changeLocationButton">
+
+                            Cambia
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTE -->
+
+                <div class="form-group">
+
+                    <label for="observationNotes">
+                        Note
+                    </label>
+
+                    <textarea
+                        id="observationNotes"
+                        placeholder="Aggiungi una nota..."></textarea>
+
+                </div>
+
+
+                <!-- SALVA -->
+
+                <button
+                    type="button"
+                    class="delete-observation-button"
+                    id="deleteObservationButton"
+                    style="display:none;">
+                    Elimina osservazione
+                </button>
+
+                <button
+                    class="save-observation-button"
+                    id="saveObservationButton">
+
+                    Salva osservazione
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             SCHERMATA MAPPA
+        ====================================== -->
+
+        <div
+            class="map-screen"
+            id="mapScreen">
+
+
+            <div class="map-header">
+
+                <button
+                    class="map-close-button"
+                    id="closeMapButton">
+
+                    ×
+
+                </button>
+
+
+                <div>
+
+                    <p class="eyebrow">
+                        SCEGLI LA POSIZIONE
+                    </p>
+
+                    <h2>
+                        Posiziona il punto sulla mappa
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="map-container"
+                id="map">
+            </div>
+
+
+            <div class="map-instruction">
+
+                Sposta la mappa e posiziona il punto
+                nel luogo dell'osservazione.
+
+            </div>
+
+
+            <button
+                class="confirm-map-location-button"
+                id="confirmMapLocationButton">
+
+                Conferma posizione
+
+            </button>
+
+        </div>
+<!-- =====================================
+     CHECKLIST
+====================================== -->
+
+<section
+    class="checklist-screen"
+    id="checklistScreen">
+
+    <header class="checklist-header">
+
+        <div>
+
+            <p class="eyebrow">
+                BIG YEAR 2026
+            </p>
+
+            <h2>
+                Checklist
+            </h2>
+
+        </div>
+
+        <button
+            class="checklist-close-button"
+            id="closeChecklistButton">
+
+            ×
+
+        </button>
+
+    </header>
+
+
+    <div class="checklist-summary">
+
+        <strong id="checklistSpeciesCount">
+            0
+        </strong>
+
+        <span>
+            specie osservate
+        </span>
+
+    </div>
+
+
+    <div class="checklist-search">
+
+        <span class="checklist-search-icon">
+            <img src="assets/search.png" alt="" aria-hidden="true">
+        </span>
+
+        <input
+            type="text"
+            id="checklistSearchInput"
+            placeholder="Cerca nella checklist..."
+            autocomplete="off">
+
+    </div>
+
+
+    <div
+        class="checklist-list"
+        id="checklistList">
+    </div>
+
+</section>
+
+        <!-- =====================================
+             SEZIONE MAPPA
+        ====================================== -->
+        <section class="app-section nav-content-screen observations-map-section" id="observationsMapSection">
+            <div class="observations-map-header">
+                <div>
+                    <p class="eyebrow">BIG YEAR 2026</p>
+                    <h2>Mappa</h2>
+                    <p class="observations-map-subtitle">Le tue osservazioni, raccolte per luogo.</p>
+                </div>
+                <div class="observations-map-count" id="observationsMapCount">0</div>
+            </div>
+
+            <div class="observations-map-card">
+                <div id="observationsMap" class="observations-map-canvas" aria-label="Mappa delle osservazioni"></div>
+                <div class="observations-map-empty" id="observationsMapEmpty" hidden>
+                    <img src="assets/map.png" alt="" aria-hidden="true">
+                    <strong>Nessuna osservazione geolocalizzata</strong>
+                    <span>Quando salverai un'osservazione con una posizione, la vedrai qui.</span>
+                </div>
+            </div>
+
+            <div class="observation-map-list-overlay" id="observationMapListOverlay" aria-hidden="true">
+                <div class="observation-map-list-modal" role="dialog" aria-modal="true" aria-labelledby="observationMapListTitle">
+                    <div class="observation-map-list-header">
+                        <div>
+                            <p class="eyebrow">LUOGO</p>
+                            <h3 id="observationMapListTitle">Osservazioni</h3>
+                        </div>
+                        <button type="button" class="observation-map-list-close" id="closeObservationMapListButton" aria-label="Chiudi">×</button>
+                    </div>
+                    <div class="observation-map-list" id="observationMapList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================
+             SEZIONE AMICI
+        ====================================== -->
+        <section class="app-section nav-content-screen friends-section" id="friendsSection">
+            <div class="friends-page-inner">
+                <div class="friends-page-header">
+                    <div>
+                        <p class="eyebrow">BIG YEAR 2026</p>
+                        <h2>Amici</h2>
+                        <p class="friends-subtitle">Confronta le osservazioni con gli altri partecipanti.</p>
+                    </div>
+                </div>
+
+                <div class="friends-selector-label friends-selector-title" id="friendsSelectorLabel" hidden>I tuoi amici</div>
+                <div class="friends-selector" id="friendsSelector" aria-label="Seleziona un amico"></div>
+
+                <div class="friends-empty" id="friendsEmpty" hidden>
+                    <img src="assets/friends.svg" alt="" aria-hidden="true">
+                    <strong>Non hai ancora aggiunto amici</strong>
+                    <span>Aggiungi un partecipante al Big Year per poter confrontare le vostre osservazioni.</span>
+                </div>
+
+                <div class="friend-detail" id="friendDetail" hidden>
+                    <div class="friend-detail-header">
+                        <div class="friend-avatar" id="friendAvatar">N</div>
+                        <div class="friend-detail-heading">
+                            <p class="eyebrow">CHECKLIST DI</p>
+                            <h3 id="friendDetailName">Amico</h3>
+                            <span class="friend-detail-status" id="friendDetailStatus"></span>
+                        </div>
+                    </div>
+
+                    <div class="friend-view-switch" role="tablist" aria-label="Checklist dell'amico">
+                        <button type="button" class="friend-view-button active" id="friendAllButton" data-view="all">
+                            <strong>Tutte le specie</strong>
+                            <span id="friendObservedCount">0</span>
+                        </button>
+                        <button type="button" class="friend-view-button" id="friendMissingButton" data-view="missing">
+                            <strong>Ti mancano</strong>
+                            <span id="friendMissingCount">0</span>
+                        </button>
+                        <button type="button" class="friend-view-button" id="friendCommonButton" data-view="common">
+                            <strong>In comune</strong>
+                            <span id="friendCommonCount">0</span>
+                        </button>
+                    </div>
+                    <div class="friend-species-list" id="friendSpeciesList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================
+             POPUP NOTA OSSERVAZIONE
+        ====================================== -->
+        <div class="observation-note-overlay" id="observationNoteOverlay" aria-hidden="true">
+            <div class="observation-note-modal" role="dialog" aria-modal="true" aria-labelledby="observationNoteTitle">
+                <div class="observation-note-header">
+                    <div>
+                        <p class="eyebrow">NOTA</p>
+                        <h3 id="observationNoteTitle">Nota dell'osservazione</h3>
+                    </div>
+                    <button type="button" class="observation-note-close" id="closeObservationNoteButton" aria-label="Chiudi nota">×</button>
+                </div>
+                <p id="observationNoteText" class="observation-note-text"></p>
+            </div>
+        </div>
+
+        <!-- =====================================
+             NAVIGAZIONE
+        ====================================== -->
+
+        <nav class="bottom-nav">
+
+            <button class="nav-item active" id="homeButton">
+                <span class="nav-icon image-nav-icon">
+                    <img src="assets/home.png" alt="" aria-hidden="true">
+                </span>
+                <span>Home</span>
+            </button>
+
+            <button class="nav-item" id="checklistButton">
+                <span class="nav-icon image-nav-icon">
+                    <img src="assets/binoculars.png" alt="" aria-hidden="true">
+                </span>
+                <span>Checklist</span>
+            </button>
+
+            <button class="add-button image-add-button" id="addObservationButton" aria-label="Aggiungi osservazione">
+                <img src="assets/plus.png" alt="" aria-hidden="true">
+            </button>
+
+            <button class="nav-item" id="mapNavButton">
+                <span class="nav-icon image-nav-icon">
+                    <img src="assets/map.png" alt="" aria-hidden="true">
+                </span>
+                <span>Mappa</span>
+            </button>
+
+            <button class="nav-item" id="friendsNavButton">
+                <span class="nav-icon image-nav-icon friends-nav-icon" aria-hidden="true">
+                    <img src="assets/friends.svg" alt="" aria-hidden="true">
+                </span>
+                <span>Amici</span>
+            </button>
+
+        </nav>
+
+    </main>
+
+
+    <!-- =====================================
+         LEAFLET
+    ====================================== -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+
+    <!-- =====================================
+         BIGYEAR
+    ====================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="storage.js"></script>
+    <script src="auth.js"></script>
+    <script src="cloud.js"></script>
+    <script src="utils.js"></script>
+    <script src="friends.js"></script>
+    <script src="state.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
